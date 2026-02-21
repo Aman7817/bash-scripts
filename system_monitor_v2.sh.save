@@ -1,0 +1,35 @@
+#!/bin/bash
+
+############################################
+# Advanced System Monitor Script
+# Author: Aman
+# Purpose: System health monitoring
+############################################
+
+LOGFILE="system_monitor.log"
+
+# ==== COLORS ====
+RED="\e[31m"
+YELLOW="\e[32m"
+BLUE="\e[33m"
+RESET="\e[0m"
+
+# ==== SYSTEM_INFO ====
+
+system_info() {
+	echo -e "${BLUE}==== SYSTEM INFO ====${RESET}"
+	echo "User: $(whoami)"
+	echo "Date: $(date)"
+	echo "Hostname: $(hostname)"
+	echo ""
+}
+
+# ==== CPU USAGE ====
+
+check_cpu() {
+	echo -e "${BLUSE}==== CPU USAGE ====${RESET}"
+	
+	cpu_usage=$(top -bn1 | grep "Cpu(s)" | \
+	awk '{print 100-$8"%"}')
+	
+	echo 
