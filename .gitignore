@@ -1,0 +1,15 @@
+# Log files
+*.log
+
+# Backup files
+*.save
+*.save.sh
+
+# Temporary files
+*.tmp
+
+# Node modules (if future)
+node_modules/
+
+# System files
+.DS_Store
